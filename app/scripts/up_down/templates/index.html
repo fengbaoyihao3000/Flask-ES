@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form1" method="post" action="/upload" enctype="multipart/form-data">
+    <div>
+        <input id="File1" type="file" name="myfile"/>  <!--后台代码中获取文件是通过form的name来标识的-->
+        <button type="submit">提交</button>
+    </div>
+</form>
+
+<a href="/download">download</a>
+</body>
+</html>

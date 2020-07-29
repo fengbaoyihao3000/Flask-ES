@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/detail.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+            integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/jquery.gsap.min.js"></script>
+    <script src="/static/js/detail.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <section class="main">
+                <div class="post">
+                    <div class="post-header">
+                        <h1 class="title">{{ match_data._source.title }}</h1>
+                        <div class="post-info">
+{#                            <span class="date">{{ match_data._source.tag[0] }}</span>#}
+                            <span class="category">{{ match_data._source.create_time }}</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="content" style="font-size: 0.9rem">
+                        <p>
+                            {% if match_data._source.content %}
+                           {{ match_data._source.content }}
+                                {% else %}
+                                不知原因没有资料 。。。。
+
+                            {% endif %}
+
+                        </p>
+                        <br><br>
+
+
+                        <p>
+
+                            相关链接： {{ match_data._source.link }}
+                        </p>
+                        <br><br>
+{#                        <p><strong>Youtube</strong></p>#}
+{##}
+{#                            <video id="video" controls="" preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">#}
+{#      <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">#}
+{#      <source id="webm" src="http://media.w3.org/2010/05/sintel/trailer.webm" type="video/webm">#}
+{#      <source id="ogv" src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">#}
+{#      <p>Your user agent does not support the HTML5 Video element.</p>#}
+{#    </video>#}
+
+
+                        <p>
+                            Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, search engine, cloud computing, software, and hardware. It is considered one of the Big Four technology companies, alongside Amazon, Apple, and Facebook.[10][11]
+
+Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002.[12] An initial public offering (IPO) took place on August 19, 2004, and Google moved to its headquarters in Mountain View, California, nicknamed the Googleplex. In August 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet
+
+                            <br><br>
+                            Inc. Google is Alphabet's leading subsidiary and will continue to be the umbrella company for Alphabet's Internet interests. Sundar Pichai was appointed CEO of Google, replacing Larry Page who became the CEO of Alphabet.
+
+The company's rapid growth since incorporation has triggered a chain of products, acquisitions, and partnerships beyond Google's core search engine (Google Search). It offers services designed for work and productivity (Google Docs, Google Sheets, and Google Slides), email (Gmail), scheduling and time management (Google Calendar), cloud storage (Google Drive), instant messaging and video chat (Duo, Hangouts), language translation (Google Translate), mapping and navigation (Google Maps, Waze, Google Earth, Street View), video sharing (YouTube), note-taking (Google Keep), and photo organizing and editing (Google Photos). The company leads the development of the Android mobile operating system, the Google Chrome web browser, and Chrome OS, a lightweight operating system based on the Chrome browser. Google has moved increasingly into hardware; from 2010 to 2015, it partnered with major electronics manufacturers in the production of its Nexus devices, and it released multiple hardware products in October 2016, including the Google Pixel smartphone, Google Home smart speaker, Google Wifi mesh wireless router, and Google Daydream virtual reality headset. Google has also experimented with becoming an Internet carrier (Google Fiber, Google Fi, and Google Station).[13]
+
+Google.com is the most visited website in the world.[14] Several other Google services also figure in the top 100 most visited websites, including YouTube and Blogger. Google was the most valuable brand in the world as of 2017,[15] but has received significant criticism involving issues such as privacy concerns, tax avoidance, antitrust, censorship, and search neutrality. Google's mission statement is "to organize the world's information and make it universally accessible and useful". The company's unofficial slogan "Don't be evil" was removed from the company's code of conduct around May 2018, but reinstated by July 31, 2018.[16][17]
+                        </p>
+
+
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+</body>
+</html>

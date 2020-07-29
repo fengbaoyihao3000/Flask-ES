@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/detail.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="/static/js/detail.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/github-markdown.min.css">
+    <link rel="stylesheet" href="/static/css/github-v2.min.css">
+
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/main.js"></script>
+
+</head>
+<body>
+
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+
+            <li class="menu-item">
+                <a href="">
+                    人物搜索
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="/baike">
+                    百科搜索
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="/math">
+                    数学搜索
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="">
+                    Python搜索
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="">
+                    Categories
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a href="">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container nopadding-md">
+    <form action="/search" method="GET">
+        {{ searchForm.search_key(size=35,class_='form-control',type='text',id="local-search-input",placeholder='关键词') }}
+    </form>
+
+    <div class="py-5 z-depth-3" id="board">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12 col-md-10 m-auto">
+
+                    {% if match_data==[] %}
+                        <h2 style="text-align: center; color:#c4e6f5">糟糕, 并没有 {{ q }} 的搜索结果</h2>
+                        <br> <br>
+                    {% else %}
+                        {% for data in match_data %}
+                            <div class="row mb-4 mx-auto">
+
+                                <div class="col-12 col-md-8 m-auto">
+
+                                    <a href="{{ uid_link + data._id }}">
+
+
+                                        <div class="index-excerpt">
+                                            <div class="index-text mb-1">
+                                                {{ data._source.title }} <a href="javascript:;"> &nbsp;</a>&nbsp;
+                                                <i class="iconfont icon-riqi2"></i>&nbsp;
+                                                最后更新时间：{{ data._source.create_time }}&nbsp;&nbsp;
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <div>
+                                        {% if data._source.content %}
+                                            <i class="iconfont icon-riqi2"></i>&nbsp;{{ data._source.content[:100] }} .
+                                            . .
+                                            .&nbsp;&nbsp;
+                                        {% else %}
+                                            不知原因没有资料 。。。。
+                                        {% endif %}
+                                        <i class="iconfont icon-riqi2"></i>&nbsp&nbsp;&nbsp;
+
+
+                                        {#                                    搜索匹配度：<i class="iconfont icon-riqi2"></i>&nbsp;{{ data._score }}&nbsp;&nbsp;#}
+
+                                        <br><br>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                        <ul class="fpageul">
+                            {{ pagination.links }}
+                        </ul>
+                    {% endif %}
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
